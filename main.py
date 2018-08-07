@@ -102,7 +102,7 @@ class MainDialog(QtWidgets.QDialog, Ui_untitled.Ui_Form):
 
                 frameDelta = cv2.absdiff(self.lastGrayFrame[i], gray)
                 thresh = cv2.threshold(frameDelta, 90, 255, cv2.THRESH_BINARY)[1]
-                thresh = cv2.dilate(thresh, None, iterations=4)
+                thresh = cv2.dilate(thresh, None, iterations=2)
                 cnts = cv2.findContours(thresh.copy(), cv2.RETR_EXTERNAL,
                     cv2.CHAIN_APPROX_SIMPLE)
                 cnts = cnts[0] if imutils.is_cv2() else cnts[1]
